@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="robot">
-
-    <!-- Example link -->
-    <link name="base_link"></link>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="rover">
+    <xacro:include filename="$(find rover)/description/urdf/ack.xacro"/>
+    <xacro:include filename="$(find rover)/description/urdf/inertial_matrix.xacro" />
 
 </robot>
