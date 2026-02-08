@@ -1,0 +1,382 @@
+<sdf version='1.11'>
+  <model name='mecanum'>
+    <link name='base_footprint'>
+      <inertial>
+        <pose>0.0083599781208548753 0.00020466473719216079 0.1015057293972399 0 0 0</pose>
+        <mass>0.14794782361434719</mass>
+        <inertia>
+          <ixx>0.00024368746250641061</ixx>
+          <ixy>-1.470854432069145e-06</ixy>
+          <ixz>1.651013211037085e-05</ixz>
+          <iyy>0.00052972202900730919</iyy>
+          <iyz>-1.87293839586293e-07</iyz>
+          <izz>0.00049590054156261752</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_footprint_fixed_joint_lump__base_link_collision'>
+        <pose>0 0 0.070000000000000007 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://mentorpi_description/meshes/mecanum/base_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='base_footprint_fixed_joint_lump__depth_cam_collision_1'>
+        <pose>0.061376 -0.00013463 0.121154 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://mentorpi_description/meshes/mecanum/cam_Link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='base_footprint_fixed_joint_lump__lidar_frame_collision_2'>
+        <pose>-0.012241999999999999 -8.5329999999999998e-05 0.16250100000000001 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://mentorpi_description/meshes/mecanum/lidar_Link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='base_footprint_fixed_joint_lump__base_link_visual'>
+        <pose>0 0 0.070000000000000007 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://mentorpi_description/meshes/mecanum/base_link.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_footprint_fixed_joint_lump__depth_cam_visual_1'>
+        <pose>0.061376 -0.00013463 0.121154 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://mentorpi_description/meshes/mecanum/cam_Link.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_footprint_fixed_joint_lump__lidar_frame_visual_2'>
+        <pose>-0.012241999999999999 -8.5329999999999998e-05 0.16250100000000001 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://mentorpi_description/meshes/mecanum/lidar_Link.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='wheel_lb_Joint' type='revolute'>
+      <pose relative_to='base_footprint'>-0.067640000000000006 0.075910000000000005 0.051586000000000007 0 0 0</pose>
+      <parent>base_footprint</parent>
+      <child>wheel_lb_Link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-inf</lower>
+          <upper>inf</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='wheel_lb_Link'>
+      <pose relative_to='wheel_lb_Joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>-4.3908917676790901e-05 -0.0057462942749861596 3.5968410843391397e-05 0 0 0</pose>
+        <mass>0.037868940275207402</mass>
+        <inertia>
+          <ixx>3.6762932854138598e-06</ixx>
+          <ixy>1.4855262049124399e-09</ixy>
+          <ixz>1.2097714981292599e-08</ixz>
+          <iyy>5.8090321005648301e-06</iyy>
+          <iyz>1.7255530279506201e-09</iyz>
+          <izz>3.6786318488588001e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='wheel_lb_Link_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://mentorpi_description/meshes/mecanum/wheel_lb_Link.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction>
+              <ode>
+              <!-- Coulomb friction coefficients (dimensionless) -->
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+
+              <!-- Slip compliance (0 = no slip; small nonzero can help stability) -->
+              <slip1>0.01</slip1>
+              <slip2>0.01</slip2>
+              </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='wheel_lb_Link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://mentorpi_description/meshes/mecanum/wheel_lb_Link.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='wheel_lf_Joint' type='revolute'>
+      <pose relative_to='base_footprint'>0.067052 0.075910000000000005 0.051592000000000013 0 0 0</pose>
+      <parent>base_footprint</parent>
+      <child>wheel_lf_Link</child>
+      <axis>
+        <xyz>0.00012228 1 -4.0642000000000002e-05</xyz>
+        <limit>
+          <lower>-inf</lower>
+          <upper>inf</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='wheel_lf_Link'>
+      <pose relative_to='wheel_lf_Joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>6.2319434777094505e-05 -0.0057461497169536101 2.9859714946331399e-05 0 0 0</pose>
+        <mass>0.037874363466421798</mass>
+        <inertia>
+          <ixx>3.67678518315829e-06</ixx>
+          <ixy>-1.42189561270372e-09</ixy>
+          <ixz>-1.20320324868622e-08</ixz>
+          <iyy>5.8100899575421201e-06</iyy>
+          <iyz>1.7232975881221199e-09</iyz>
+          <izz>3.6793946089832899e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='wheel_lf_Link_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://mentorpi_description/meshes/mecanum/wheel_lf_Link.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction>
+              <ode>
+              <!-- Coulomb friction coefficients (dimensionless) -->
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+
+              <!-- Slip compliance (0 = no slip; small nonzero can help stability) -->
+              <slip1>0.01</slip1>
+              <slip2>0.01</slip2>
+              </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='wheel_lf_Link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://mentorpi_description/meshes/mecanum/wheel_lf_Link.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='wheel_rb_Joint' type='revolute'>
+      <pose relative_to='base_footprint'>-0.067621000000000001 -0.075910000000000005 0.051592000000000013 0 0 0</pose>
+      <parent>base_footprint</parent>
+      <child>wheel_rb_Link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-inf</lower>
+          <upper>inf</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='wheel_rb_Link'>
+      <pose relative_to='wheel_rb_Joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>-6.2256559793027994e-05 0.0057461409216920901 2.96857054536206e-05 0 0 0</pose>
+        <mass>0.037874238893726701</mass>
+        <inertia>
+          <ixx>3.6769088073303799e-06</ixx>
+          <ixy>-1.42614754024296e-09</ixy>
+          <ixz>1.19925568848388e-08</ixz>
+          <iyy>5.8100905414932798e-06</iyy>
+          <iyz>-1.72488948912739e-09</iyz>
+          <izz>3.6792824165615098e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='wheel_rb_Link_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://mentorpi_description/meshes/mecanum/wheel_rb_Link.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction>
+              <ode>
+              <!-- Coulomb friction coefficients (dimensionless) -->
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+
+              <!-- Slip compliance (0 = no slip; small nonzero can help stability) -->
+              <slip1>0.01</slip1>
+              <slip2>0.01</slip2>
+              </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='wheel_rb_Link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://mentorpi_description/meshes/mecanum/wheel_rb_Link.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='wheel_rf_Joint' type='revolute'>
+      <pose relative_to='base_footprint'>0.067052 -0.075910000000000005 0.051592000000000013 0 0 0</pose>
+      <parent>base_footprint</parent>
+      <child>wheel_rf_Link</child>
+      <axis>
+        <xyz>0.00012228 1 -4.0642000000000002e-05</xyz>
+        <limit>
+          <lower>-inf</lower>
+          <upper>inf</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='wheel_rf_Link'>
+      <pose relative_to='wheel_rf_Joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>6.2211823748312093e-05 0.0057462667189166197 2.9816780490625499e-05 0 0 0</pose>
+        <mass>0.0378687944527435</mass>
+        <inertia>
+          <ixx>3.6763532207194399e-06</ixx>
+          <ixy>1.49075106320551e-09</ixy>
+          <ixz>-1.2044056203334899e-08</ixz>
+          <iyy>5.8090505332965598e-06</iyy>
+          <iyz>-1.7316728972649e-09</iyz>
+          <izz>3.6785954295300199e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='wheel_rf_Link_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://mentorpi_description/meshes/mecanum/wheel_rf_Link.STL</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction>
+              <ode>
+              <!-- Coulomb friction coefficients (dimensionless) -->
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+
+              <!-- Slip compliance (0 = no slip; small nonzero can help stability) -->
+              <slip1>0.01</slip1>
+              <slip2>0.01</slip2>
+              </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='wheel_rf_Link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://mentorpi_description/meshes/mecanum/wheel_rf_Link.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <frame name='cam_Joint' attached_to='base_link'>
+      <pose>0.061376 -0.00013463 0.051153999999999998 0 0 0</pose>
+    </frame>
+    <frame name='depth_cam' attached_to='cam_Joint'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='imu_joint' attached_to='base_link'>
+      <pose>0 0 0 0 0 -1.5700000000000001</pose>
+    </frame>
+    <frame name='imu_link' attached_to='imu_joint'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='lidar_Joint' attached_to='base_link'>
+      <pose>-0.012241999999999999 -8.5329999999999998e-05 0.092501 0 0 0</pose>
+    </frame>
+    <frame name='lidar_frame' attached_to='lidar_Joint'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='base_footprint_to_base_link' attached_to='base_footprint'>
+      <pose>0 0 0.070000000000000007 0 0 0</pose>
+    </frame>
+    <frame name='base_link' attached_to='base_footprint_to_base_link'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+
+
+    <plugin filename="libgz_ros2_control-system.so"
+        name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+     <parameters>/home/localuser/mentorpi_ws/src/my_rover/config/my_controller.yaml</parameters>
+     
+    </plugin>
+
+
+
+  </model>
+</sdf>

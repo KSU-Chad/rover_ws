@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+        <ros2_control name="GazeboSystem" type="system">
+                <hardware>
+                    <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+                </hardware>
+                <joint name="front_steering_joint" >
+                    <command_interface name="position"/>
+                    <state_interface name="position"/>
+                </joint>
+                <joint name="wheel_rb_Joint" >
+                    <command_interface name="velocity"/>
+                    <state_interface name="velocity"/>
+                </joint>
+                <joint name="wheel_lb_Joint" >
+                    <command_interface name="velocity"/>
+                    <state_interface name="velocity"/>
+                </joint>
+        </ros2_control>
+
+        
+    <gazebo>
+        <plugin name="gz_ros2_control::GazeboSimROS2ControlPlugin" filename="libgz_ros2_control-system.so">
+                        <!-- Make sure to put your package name in there!! -->
+            <parameters>$(find my_rover)/config/my_controllers.yaml</parameters>
+        </plugin>
+    </gazebo>
+
+
+</robot>

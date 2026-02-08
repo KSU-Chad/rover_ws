@@ -17,7 +17,7 @@ def launch_setup(context, *args, **kwargs):
     if compiled == 'True':
         controller_package_path = get_package_share_directory('controller')
     else:
-        controller_package_path = '/home/ubuntu/ros2_ws/src/driver/controller'
+        controller_package_path = '/home/localuser/mentorpi_ws/src/driver/controller'
     
     init_pose_param_file = os.path.join(controller_package_path, 'config/init_pose.yaml')
 

@@ -35,7 +35,7 @@ class PID:
         self.output = 0.0
 
     def update(self, feedback_value):
-        """Calculates PID value for given reference feedback
+        r"""Calculates PID value for given reference feedback
         .. math::
             u(t) = K_p e(t) + K_i \int_{0}^{t} e(t)dt + K_d {de}/{dt}
         .. figure:: images/pid_1.png

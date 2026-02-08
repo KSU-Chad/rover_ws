@@ -35,8 +35,8 @@ def launch_setup(context):
         peripherals_package_path = get_package_share_directory('peripherals')
         controller_package_path = get_package_share_directory('controller')
     else:
-        peripherals_package_path = '/home/ubuntu/ros2_ws/src/peripherals'
-        controller_package_path = '/home/ubuntu/ros2_ws/src/driver/controller'
+        peripherals_package_path = '/home/localuser/mentorpi_ws/src/peripherals'
+        controller_package_path = '/home/localuser/mentorpi_ws/src/driver/controller'
 
 
     odom_publisher_launch = IncludeLaunchDescription(

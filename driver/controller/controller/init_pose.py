@@ -20,7 +20,7 @@ class InitPose(Node):
         self.client = self.create_client(Trigger, namespace + '/controller_manager/init_finish')
         self.client.wait_for_service()
 
-        with open('/home/ubuntu/software/Servo_upper_computer/servo_config.yaml', 'r') as file:
+        with open('/home/localuser/software/Servo_upper_computer/servo_config.yaml', 'r') as file:
             servo_offsets = yaml.safe_load(file)
 
         pulse = self.get_parameters_by_prefix('servo')

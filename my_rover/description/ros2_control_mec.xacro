@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+        <ros2_control name="GazeboSystem" type="system">
+                <hardware>
+                    <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+                </hardware>
+                <joint name="wheel_rf_Joint" >
+                    <command_interface name="velocity"/>
+                    <state_interface name="velocity"/>
+                    <state_interface name="position"/>
+                </joint>
+                <joint name="wheel_lf_Joint" >
+                    <command_interface name="velocity"/>
+                    <state_interface name="velocity"/>
+                    <state_interface name="position"/>
+                </joint>
+                <joint name="wheel_rb_Joint" >
+                    <command_interface name="velocity"/>
+                    <state_interface name="velocity"/>
+                    <state_interface name="position"/>
+                </joint>
+                <joint name="wheel_lb_Joint" >
+                    <command_interface name="velocity"/>
+                    <state_interface name="velocity"/>
+                    <state_interface name="position"/>
+                </joint>
+        </ros2_control>
+
+        
+    <gazebo>
+        <plugin name="gz_ros2_control::GazeboSimROS2ControlPlugin" filename="libgz_ros2_control-system.so">
+                        <!-- Make sure to put your package name in there!! -->
+            <!-- <parameters>$(find my_rover)/config/my_controllers.yaml</parameters> -->
+              <!-- <parameters>${ament_index_cpp:get_package_share_directory('my_rover')}/config/my_controllers.yaml</parameters>
+              <parameters>${ament_index_python:get_package_share_directory("my_rover")}/config/my_controllers.yaml</parameters> -->
+            <parameters>$(env MY_ROVER_CONTROLLERS)</parameters>
+        </plugin>
+    </gazebo>
+
+
+</robot>
