@@ -42,3 +42,7 @@ diff_cont:
     wheel_separation: 0.133
     wheel_radius: 0.0184
     wheel_separation_multiplier: 1.0
+
+# mecanum_cont:
+#   ros_parameters:
+#     publish_rate: 50.0
