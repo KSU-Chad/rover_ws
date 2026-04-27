@@ -60,11 +60,10 @@ Leave this running.
 
 ### Terminal 2 — Open RViz
 
-Replace `<user>` with your actual username (e.g., `pi`, `student`, etc.):
 
 ```bash
 source install/setup.bash
-rviz2 -d /home/<user>/mentorpi_ws/src/my_rover/rviz/view_bot.rviz
+rviz2 -d src/my_rover/rviz/view_bot.rviz
 ```
 
 -----
