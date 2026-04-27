@@ -73,7 +73,7 @@ rviz2 -d /home/<user>/mentorpi_ws/src/my_rover/rviz/view_bot.rviz
 
 ```bash
 source install/setup.bash
-ros2 run teleop_twist_keyboard teleop_twist_keyboard —ros-args -p stamped:=true
+ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -p stamped:=true
 ```
 
 Click on Terminal 3 to make sure it has focus, then use the keyboard to drive the robot.
