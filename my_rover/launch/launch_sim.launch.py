@@ -44,7 +44,7 @@ def generate_launch_description():
 
     world_arg = DeclareLaunchArgument(
         'world',
-        default_value="test_track.sdf",
+        default_value="empty.sdf",
         description='World to load'
         # -- /opt/ros/jazzy/opt/gz_sim_vendor/share/gz/gz-sim8/worlds/empty.sdf ---
     )
