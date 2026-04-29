@@ -16,7 +16,9 @@ from launch.actions import LogInfo
 
 from launch.actions import TimerAction
 
-rover_package_path = get_package_share_directory('mentorpi_description')
+#rover_package_path = get_package_share_directory('mentorpi_description')
+mentorpi_description_package_path = get_package_share_directory('mentorpi_description')
+get_package_share_directory('driver/mentorpi_description')
 
 
 def generate_launch_description():
