@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Override wheel collision geometry with cylinders for dartsim compatibility -->
+  <!-- Wheel radius: 0.0184m, width ~0.015m based on inertia -->
+
+  <xacro:macro name="wheel_collision" params="link_name">
+    <gazebo reference="${link_name}">
+      <collision>
+        <geometry>
+          <cylinder length="0.015" radius="0.0184"/>
+        </geometry>
+      </collision>
+    </gazebo>
+  </xacro:macro>
+
+  <xacro:wheel_collision link_name="wheel_lf_Link"/>
+  <xacro:wheel_collision link_name="wheel_rf_Link"/>
+  <xacro:wheel_collision link_name="wheel_lb_Link"/>
+  <xacro:wheel_collision link_name="wheel_rb_Link"/>
+
+</robot>
