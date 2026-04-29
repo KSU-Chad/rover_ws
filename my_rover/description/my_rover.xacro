@@ -5,6 +5,9 @@
   <xacro:include filename="$(find mentorpi_description)/urdf/robot.urdf.xacro" />
 
   <!-- 2. (Optional) include your own helper xacros -->
+
+  <xacro:include filename="$(find my_rover)/description/mecanum_collision.xacro" />
+
   <xacro:arg name="use_ros2_control" default="true"/>
 
   <!-- xacro:include filename="$(find my_rover)/description/inertial_macros.xacro"/-->
