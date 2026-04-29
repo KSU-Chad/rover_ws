@@ -372,7 +372,7 @@
 
     <plugin filename="libgz_ros2_control-system.so"
         name="gz_ros2_control::GazeboSimROS2ControlPlugin">
-     <parameters>$(arg my_controller_yaml_path)</parameters>
+     <parameters>$(env MY_ROVER_CONTROLLERS)</parameters>
      
     </plugin>
 
