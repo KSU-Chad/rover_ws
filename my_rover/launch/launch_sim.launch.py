@@ -18,7 +18,6 @@ from launch.actions import TimerAction
 
 #rover_package_path = get_package_share_directory('mentorpi_description')
 mentorpi_description_package_path = get_package_share_directory('mentorpi_description')
-get_package_share_directory('driver/mentorpi_description')
 
 
 def generate_launch_description():
@@ -68,7 +67,7 @@ def generate_launch_description():
     gazebo = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
                     get_package_share_directory('ros_gz_sim'), 'launch', 'gz_sim.launch.py')]),
-                    launch_arguments={'gz_args': ['-r -v4 -s', world], 'on_exit_shutdown': 'true', 'my_controller_yaml_path': controllers_yaml}.items()
+                    launch_arguments={'gz_args': ['-r -v4 -s ', world], 'on_exit_shutdown': 'true', 'my_controller_yaml_path': controllers_yaml}.items()
              )
 
 
