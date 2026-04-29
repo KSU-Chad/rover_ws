@@ -26,7 +26,7 @@ def generate_launch_description():
     controllers_yaml = os.path.join(
         get_package_share_directory('my_rover'),
         'config',
-        'my_controllers.yaml'
+        'my_controller.yaml'
     )
 
     set_ctrl_yaml = SetEnvironmentVariable(
