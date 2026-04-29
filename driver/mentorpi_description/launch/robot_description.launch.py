@@ -24,10 +24,11 @@ def generate_launch_description():
     namespace_arg = DeclareLaunchArgument('namespace', default_value=namespace)
     use_namespace_arg = DeclareLaunchArgument('use_namespace', default_value=use_namespace)
 
-    if compiled == 'True':
-        mentorpi_description_package_path = get_package_share_directory('driver/mentorpi_description')
-    else:
-        mentorpi_description_package_path = '/home/localuser/mentorpi_ws/src/driver/mentorpi_description'
+   # if compiled == 'True':
+   #     mentorpi_description_package_path = get_package_share_directory('driver/mentorpi_description')
+   # else:
+    #  mentorpi_description_package_path = '/home/localuser/mentorpi_ws/src/driver/mentorpi_description'
+    mentorpi_description_package_path = get_package_share_directory('driver/mentorpi_description')
     urdf_path = os.path.join(mentorpi_description_package_path, 'urdf/robot.urdf.xacro')
     rviz_config_file = os.path.join(mentorpi_description_package_path, 'rviz/view.rviz')
 
