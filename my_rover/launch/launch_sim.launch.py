@@ -16,6 +16,8 @@ from launch.actions import LogInfo
 
 from launch.actions import TimerAction
 
+rover_package_path = get_package_share_directory('mentorpi_description')
+
 
 def generate_launch_description():
 #    description_package_name="scout_description"
@@ -71,7 +73,7 @@ def generate_launch_description():
     # Run the spawner node from the ros_gz_sim package. The entity name doesn't really matter if you only have a single robot.
     spawn_entity = Node(package='ros_gz_sim', executable='create',
                         # arguments=['-topic', 'robot_description',
-                        arguments=['-file', '/home/localuser/mentorpi_ws/src/driver/mentorpi_description/sdf/robot.sdf',
+                        arguments=['-file', os.path.join(mentorpi_description_package_path, 'sdf', 'robot.sdf',
                                    '-name', 'my_rover',
                                    '-z', '0.22'],
                                 #    '-y', '1.5708'],
