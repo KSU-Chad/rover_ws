@@ -34,7 +34,7 @@
             <!-- <parameters>$(find my_rover)/config/my_controllers.yaml</parameters> -->
               <!-- <parameters>${ament_index_cpp:get_package_share_directory('my_rover')}/config/my_controllers.yaml</parameters>
               <parameters>${ament_index_python:get_package_share_directory("my_rover")}/config/my_controllers.yaml</parameters> -->
-            <parameters>$(env MY_ROVER_CONTROLLERS)</parameters>
+            <parameters>$(find my_rover)/config/my_controller.yaml</parameters>
         </plugin>
     </gazebo>
 
