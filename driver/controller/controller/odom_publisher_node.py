@@ -6,6 +6,7 @@ import time
 import rclpy
 import signal
 import threading
+import tf2_ros
 from rclpy.node import Node
 from std_srvs.srv import Trigger
 from nav_msgs.msg import Odometry
@@ -109,9 +110,10 @@ class Controller(Node):
 
         self.clock = self.get_clock() 
         if self.pub_odom_topic:
-            # self.odom_broadcaster = tf2_ros.TransformBroadcaster(self)            # self.odom_trans = TransformStamped()
-            # self.odom_trans.header.frame_id = self.odom_frame_id
-            # self.odom_trans.child_frame_id = self.base_frame_id
+            self.odom_broadcaster = tf2_ros.TransformBroadcaster(self)
+            self.odom_trans = TransformStamped()
+            self.odom_trans.header.frame_id = self.odom_frame_id
+            self.odom_trans.child_frame_id = self.base_frame_id
             
             self.odom = Odometry()
             self.odom.header.frame_id = self.odom_frame_id
@@ -281,6 +283,15 @@ class Controller(Node):
                 self.odom.twist.covariance = ODOM_TWIST_COVARIANCE
 
             self.odom_pub.publish(self.odom)
+            self.odom_trans.header.stamp = self.clock.now().to_msg()
+            self.odom_trans.transform.translation.x = self.odom.pose.pose.position.x
+            self.odom_trans.transform.translation.y = self.odom.pose.pose.position.y
+            self.odom_trans.transform.translation.z = 0.0
+            self.odom_trans.transform.rotation = self.odom.pose.pose.orientation
+            self.odom_broadcaster.sendTransform(self.odom_trans)
+
+
+
             self.last_time = self.current_time
             time.sleep(0.02)
 
